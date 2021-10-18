@@ -1,0 +1,24 @@
+{
+  "login":{
+    "email":"البريد الالكتروني",
+    "password":"كلمة السر",
+    "login":"تسجيل الدخول",
+    "or_login_using":"تسجيل الدخول بواسطة",
+    "create_an_account":"انشاء حساب؟",
+    "signup":"تسجيل"
+  },
+  "register":{
+    "full_name":"الاسم الكامل",
+    "email":"البريد الالكتروني",
+    "password":"كلمة السر",
+    "confirm_password":"تاكيد كلمة السر",
+    "sign_up":"تسجيل",
+    "already_have_email":"لديك حساب سابق؟",
+    "login":"تسجيل الدخول"    
+  },
+  "walk_through":{
+    "next":"التالي",
+    "previos":"السابق",
+    "skip":"تخطي"
+  }
+}
