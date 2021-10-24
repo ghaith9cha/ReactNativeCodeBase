@@ -8,7 +8,10 @@ import { color } from "../../theme"
 import { styles } from './styles'
 import { TextInput } from "react-native-gesture-handler"
 import Icon from 'react-native-vector-icons/Ionicons';
-import I18n, { t } from "i18n-js"
+import i18n, { t } from "i18n-js"
+import RNRestart from 'react-native-restart';
+import { load, loadString, saveString } from "../../utils/storage"
+import { async } from "validate.js"
 
 const ROOT: ViewStyle = {
   backgroundColor: color.palette.lightGrey,
@@ -57,19 +60,17 @@ export const LoginScreen = observer(function LoginScreen() {
         />
 
         <TouchableOpacity style={styles.loginButton}
-          onPress={() => {
+          onPress={async () => {
             rootStore.characterStore.saveCharacters([{ id: 1, name: email, password: password }]),
+              navigation.navigate('drawerScreen')
 
-              setEmail('')
-            setPassword('')
-            navigation.navigate('drawerScreen')
           }}
         >
           <Text>{t('login.login')}</Text>
         </TouchableOpacity>
 
         <Text style={{ marginTop: 30 }}>
-        {t('login.or_login_using')}
+          {t('login.or_login_using')}
         </Text>
 
 
@@ -85,15 +86,17 @@ export const LoginScreen = observer(function LoginScreen() {
           />
         </View>
         <Text style={{ marginVertical: 10 }}>
-        {t('login.create_an_account')}
+          {t('login.create_an_account')}
         </Text>
 
         <View style={styles.signUpBorder}>
           <TouchableOpacity onPress={() => {
             navigation.navigate('register')
+
+
           }}>
             <Text style={styles.signUp}>
-            {t('login.signup')}
+              {t('login.signup')}
             </Text>
           </TouchableOpacity>
         </View>

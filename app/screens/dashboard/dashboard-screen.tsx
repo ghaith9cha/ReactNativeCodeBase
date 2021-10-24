@@ -5,6 +5,8 @@ import { Header, Screen, Text } from "../../components"
 // import { useNavigation } from "@react-navigation/native"
 import { useStores } from "../../models"
 import { color } from "../../theme"
+// import AxisLineChartScreen from "./AxisLineChartScreen"
+
 
 const ROOT: ViewStyle = {
   backgroundColor: color.palette.black,
@@ -19,16 +21,8 @@ export const DashboardScreen = observer(function DashboardScreen() {
   // const navigation = useNavigation()
   return (
     <Screen style={ROOT} preset="scroll">
-      <View>
-        <View>
-          <Header />
-        </View>
-        <View>
 
-          <Text preset="header" text={rootStore.characterStore.characters[0].name} />
-
-        </View>
-      </View>
+   <Text>dsk</Text>
     </Screen>
   )
 })

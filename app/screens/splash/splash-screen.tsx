@@ -1,5 +1,5 @@
 import React, { FC, Component, useEffect } from "react"
-import { View, ViewStyle, TextStyle, ImageStyle, SafeAreaView, Text } from "react-native"
+import { View, ViewStyle, TextStyle, ImageStyle, SafeAreaView, Text, Pressable } from "react-native"
 import { observer } from "mobx-react-lite"
 import { StackScreenProps } from "@react-navigation/stack"
 import {
@@ -10,6 +10,8 @@ import {
 import { color, spacing, typography } from "../../theme";
 import { NavigatorParamList } from '../../navigators/app-navigator'
 import { async } from "validate.js"
+import i18n from "i18n-js"
+import { loadString } from "../../utils/storage"
 
 
 
@@ -42,6 +44,10 @@ const Title: TextStyle = {
   marginTop: 20,
 }
 
+loadString("locale").then((val) => {
+  console.log(val);
+  i18n.locale = val
+}).catch((e) => console.log(e))
 
 
 
@@ -51,13 +57,12 @@ export const SplashScreen: FC<StackScreenProps<NavigatorParamList, "splash">> = 
 
   useEffect(() => {
     setTimeout(() => {
-      console.log("before")
       navigation.navigate('walk_through')
       console.log("after")
     }, 5000)
 
-    
-  
+
+
 
   }, [])
 

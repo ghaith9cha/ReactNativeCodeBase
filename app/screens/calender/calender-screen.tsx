@@ -5,11 +5,15 @@ import { Screen, Text } from "../../components"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "../../models"
 import { color } from "../../theme"
-
+import { Agenda } from 'react-native-calendars'
+import  AgendaScreen1  from './index'
 const ROOT: ViewStyle = {
   backgroundColor: color.palette.black,
   flex: 1,
 }
+
+
+
 
 export const CalenderScreen = observer(function CalenderScreen() {
   // Pull in one of our MST stores
@@ -19,7 +23,12 @@ export const CalenderScreen = observer(function CalenderScreen() {
   // const navigation = useNavigation()
   return (
     <Screen style={ROOT} preset="scroll">
-      <Text preset="header" text="" />
+
+      <AgendaScreen1 />
+
     </Screen>
   )
+
+
+
 })

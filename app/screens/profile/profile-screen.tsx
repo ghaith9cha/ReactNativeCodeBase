@@ -18,7 +18,6 @@ export const ProfileScreen = observer(function ProfileScreen() {
 
   // Pull in navigation via hook
   // const navigation = useNavigation()
-
   return (
     <Screen style={ROOT} preset="scroll">
       <Profile/>

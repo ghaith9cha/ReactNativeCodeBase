@@ -5,7 +5,7 @@
  * and a "main" flow which the user will use once logged in.
  */
 import React from "react"
-import { useColorScheme } from "react-native"
+import { Animated, Button, Image, Text, useColorScheme, View } from "react-native"
 import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { CalenderScreen, DashboardScreen, FilesScreen, MapsScreen, NotificationScreen, ProfileScreen, SearchScreen, SettingScreen, SplashScreen, WalkThroughScreen } from "../screens"
@@ -13,11 +13,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { navigationRef } from "./navigation-utilities"
 import { LoginScreen } from "../screens/login/login-screen"
 import { RegisterScreen } from "../screens/register/register-screen"
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { color } from "react-native-reanimated"
-import { color as color1, spacing, typography } from "../theme";
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemList, DrawerView } from "@react-navigation/drawer";
+import { color, color as color1, spacing, typography } from "../theme";
 import Icon from "react-native-vector-icons/Ionicons"
-
+import RNRestart from "react-native-restart"
+import { saveString } from "../utils/storage"
+import { styles } from './styles'
+import { SafeAreaView } from "react-native-safe-area-context"
 
 /**
  * This type allows TypeScript to know what routes are defined in this navigator
@@ -69,15 +71,15 @@ const screenOptions = (route, color) => {
     case 'Search':
       iconName = 'search-outline';
       break;
-      case 'Calender':
-        iconName = 'calendar-outline';
-        break;
-        case 'Maps':
-          iconName = 'map-outline';
-          break;
-          case 'Files':
-            iconName = 'document-outline';
-            break;
+    case 'Calender':
+      iconName = 'calendar-outline';
+      break;
+    case 'Maps':
+      iconName = 'map-outline';
+      break;
+    case 'Files':
+      iconName = 'document-outline';
+      break;
     default:
       break;
   }
@@ -106,11 +108,47 @@ const Drawer = createDrawerNavigator()
 
 const DrawerScreen = () => {
   return (
-    <Drawer.Navigator initialRouteName="DashBoard" screenOptions={({ route }) => ({
+    <Drawer.Navigator screenOptions={({ route }) => ({
       headerShown: false,
       drawerIcon: ({ color }) => screenOptions(route, "red"),
 
-    })} >
+    })} drawerContent={props => {
+
+      return (
+        <SafeAreaView style={{ flex: 1 }}>
+
+          <View style={{ padding: 16, marginTop: 30 }}>
+            <Image
+              source={require("./userImage.jpeg")}
+              style={styles.drawerAvatarStyle}
+            />
+            <Text style={styles.userName}>Chris Hemsworth</Text>
+          </View>
+
+
+          <DrawerItemList {...props} />
+
+
+          <View style={{ flexDirection: 'row', marginLeft: 20 }}>
+
+            <Button onPress={() => {
+              saveString("locale", "ar")
+              RNRestart.Restart()
+            }} title="Arabic" color={color.palette.angry} />
+
+            <View style={{ height: "100%", width: 1, backgroundColor: color.palette.black, marginHorizontal: 3 }} />
+
+            <Button onPress={() => {
+              saveString("locale", "en")
+              RNRestart.Restart()
+            }} title="English" color={color.palette.angry} />
+
+          </View>
+        </SafeAreaView>
+
+      )
+
+    }}>
       <Drawer.Screen name="DashBoard" component={TabsScreen} />
       <Drawer.Screen name="Calender" component={CalenderScreen} />
       <Drawer.Screen name="Maps" component={MapsScreen} />
@@ -134,9 +172,6 @@ const AppStack = () => {
       <Stack.Screen name="register" component={RegisterScreen} />
       <Stack.Screen name="drawerScreen" component={DrawerScreen} />
     </Stack.Navigator>
-
-
-
 
   )
 }

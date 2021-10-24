@@ -19,7 +19,7 @@ export const SearchScreen = observer(function SearchScreen() {
   // const navigation = useNavigation()
   return (
     <Screen style={ROOT} preset="scroll">
-      <Text preset="header" text="" />
+
     </Screen>
   )
 })
