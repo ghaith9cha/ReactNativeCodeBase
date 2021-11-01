@@ -44,6 +44,35 @@ export class Api {
     })
   }
 
+  // Login API
+
+  async login(email: string, password: string): Promise<Types.GetUserResult1> {
+    const response: ApiResponse<any> = await this.apisauce.post(
+      `${this.config.url}/auth/signin`,
+      { emai: email, password: password },
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      },
+    )
+
+    if (!response.ok) {
+      const problem = getGeneralApiProblem(response)
+      if (problem) return problem
+    }
+
+    try {
+      const resultUser: Types.User1 = {
+        id: response.data.id,
+        email: response.data.email,
+      }
+      return { kind: "ok", user: resultUser }
+    } catch {
+      return { kind: "bad-data" }
+    }
+  }
+
   /**
    * Gets a list of users.
    */

@@ -17,9 +17,5 @@ export const SearchScreen = observer(function SearchScreen() {
 
   // Pull in navigation via hook
   // const navigation = useNavigation()
-  return (
-    <Screen style={ROOT} preset="scroll">
-
-    </Screen>
-  )
+  return <Screen style={ROOT} preset="scroll"></Screen>
 })

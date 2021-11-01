@@ -11,9 +11,13 @@ import { CharacterStoreModel } from "../character-store/character-store"
 // })
 
 export const RootStoreModel = types.model("RootStore").props({
-    characterStore: types.optional(CharacterStoreModel, {} as any),
-   
-  })
+  characterStore: types.optional(CharacterStoreModel, {} as any),
+  // user: types.optional(UserModel,{} as any),
+  
+  
+  // languageStore: types.optional(UserModel,{} as any),
+
+})
 
 /**
  * The RootStore instance.

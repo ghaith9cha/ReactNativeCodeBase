@@ -1,0 +1,40 @@
+### Create a new user
+POST http://192.168.0.177:3000/auth/signup
+content-type: application/json
+
+{
+  "email": "test150@test.com",
+  "password": "12345"
+}
+
+### Sign in as an existing user
+POST http://192.168.0.177:3000/auth/signin
+content-type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "12345"
+}
+
+### Get the currently signed in user
+GET http://192.168.0.177:3000/auth/whoami
+
+### Sign out
+POST http://192.168.0.177:3000/auth/signout
+
+### Find a particular user with a given ID
+GET http://192.168.0.177:3000/auth/4
+
+### Find all users with a given email
+GET http://192.168.0.177:3000/auth?email=asdf@asdf.com
+
+### Delete a user given id
+DELETE http://192.168.0.177:3000/auth/3
+
+### Update a user
+PATCH http://192.168.0.177:3000/auth/4
+content-type: application/json
+
+{
+  "password": "aaaaa"
+}

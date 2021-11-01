@@ -1,24 +1,35 @@
 {
-  "login":{
-    "email":"Email..",
-    "password":"Password...",
-    "login":"login",
-    "or_login_using":"or Login Using",
-    "create_an_account":"Create An Account",
-    "signup":"Sign Up"
+  "login": {
+    "email": "Email..",
+    "password": "Password...",
+    "login": "login",
+    "or_login_using": "or Login Using",
+    "create_an_account": "Create An Account",
+    "signup": "Sign Up"
   },
-  "register":{
-    "full_name":"Full Name",
-    "email":"Email",
-    "password":"Password",
-    "confirm_password":"Confirm Password",
-    "sign_up":"SignUp",
-    "already_have_email":"Already Have Email",
-    "login":"Login"
+  "register": {
+    "full_name": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "sign_up": "SignUp",
+    "already_have_email": "Already Have Email",
+    "login": "Login"
   },
-  "walk_through":{
-    "next":"Next",
-    "previos":"Previos",
-    "skip":"Skip"
+  "walk_through": {
+    "next": "Next",
+    "previos": "Previos",
+    "skip": "Skip"
+  },
+
+  "navigator": {
+    "Profile": "Profile",
+    "Setting": "Setting",
+    "DashBoard": "DashBoard",
+    "Search": "Search",
+    "Notification": "Notification",
+    "Calender": "Calender",
+    "Maps": "Map",
+    "Files": "FIles"
   }
 }

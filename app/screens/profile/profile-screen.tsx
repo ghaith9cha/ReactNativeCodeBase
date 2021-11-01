@@ -4,7 +4,7 @@ import { ViewStyle } from "react-native"
 import { Screen, Text } from "../../components"
 // import { useNavigation } from "@react-navigation/native"
 // import { useStores } from "../../models"
-import Profile from './index'
+import Profile from "./index"
 import { color } from "../../theme"
 
 const ROOT: ViewStyle = {
@@ -20,7 +20,7 @@ export const ProfileScreen = observer(function ProfileScreen() {
   // const navigation = useNavigation()
   return (
     <Screen style={ROOT} preset="scroll">
-      <Profile/>
+      <Profile />
     </Screen>
   )
 })

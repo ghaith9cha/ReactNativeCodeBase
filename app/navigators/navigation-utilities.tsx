@@ -121,8 +121,6 @@ export function useNavigationPersistence(storage: any, persistenceKey: string) {
     if (!isRestored) restoreState()
   }, [isRestored])
 
- 
-
   return { onNavigationStateChange, restoreState, isRestored, initialNavigationState }
 }
 

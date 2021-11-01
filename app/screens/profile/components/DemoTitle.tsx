@@ -1,32 +1,32 @@
-import {View, Text, StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import { View, Text, StyleSheet, ViewStyle, TextStyle } from "react-native"
 
 interface Props {
-  children: string;
+  children: string
 }
 
-export function DemoTitle({children}: Props) {
+export function DemoTitle({ children }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{children}</Text>
     </View>
-  );
+  )
 }
 
 interface Styles {
-  container: ViewStyle;
-  text: TextStyle;
+  container: ViewStyle
+  text: TextStyle
 }
 
 const styles = StyleSheet.create<Styles>({
   container: {
-    width: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
     paddingVertical: 16,
-    backgroundColor: 'steelblue',
+    backgroundColor: "steelblue",
   },
   text: {
     fontSize: 24,
-    color: 'white',
+    color: "white",
   },
-});
+})

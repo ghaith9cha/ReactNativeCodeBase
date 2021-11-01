@@ -1,37 +1,26 @@
+import * as React from "react"
+import { StyleSheet, SafeAreaView, View, Image, ScrollView } from "react-native"
+import { DemoTitle, DemoButton, DemoResponse } from "./components"
 
-import * as React from 'react';
-import { StyleSheet, SafeAreaView, View, Image, ScrollView } from 'react-native';
-import { DemoTitle, DemoButton, DemoResponse } from './components';
+import * as ImagePicker from "react-native-image-picker"
+import { Component } from "react"
 
-import * as ImagePicker from 'react-native-image-picker';
-import { Component } from 'react';
-
-
-
-
-const m= class index extends Component {
+const m = class index extends Component {
   render() {
-    return (
-      <div>
-        
-      </div>
-    )
+    return <div></div>
   }
 }
 
-
-
 export default function Profile() {
-  const [response, setResponse] = React.useState<any>(null);
+  const [response, setResponse] = React.useState<any>(null)
 
   const onButtonPress = React.useCallback((type, options) => {
-    if (type === 'capture') {
-      ImagePicker.launchCamera(options, setResponse);
+    if (type === "capture") {
+      ImagePicker.launchCamera(options, setResponse)
     } else {
-      ImagePicker.launchImageLibrary(options, setResponse);
+      ImagePicker.launchImageLibrary(options, setResponse)
     }
-  }, []);
-
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,12 +28,10 @@ export default function Profile() {
         <View style={styles.buttonContainer}>
           {actions.map(({ title, type, options }) => {
             return (
-              <DemoButton
-                key={title}
-                onPress={() => onButtonPress(type, options)}>
+              <DemoButton key={title} onPress={() => onButtonPress(type, options)}>
                 {title}
               </DemoButton>
-            );
+            )
           })}
         </View>
         <DemoResponse>{response}</DemoResponse>
@@ -62,75 +49,75 @@ export default function Profile() {
           ))}
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'aliceblue',
+    backgroundColor: "aliceblue",
   },
   buttonContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     marginVertical: 8,
   },
 
   image: {
     marginVertical: 24,
-    alignItems: 'center',
+    alignItems: "center",
   },
-});
+})
 
 interface Action {
-  title: string;
-  type: 'capture' | 'library';
-  options: ImagePicker.CameraOptions | ImagePicker.ImageLibraryOptions;
+  title: string
+  type: "capture" | "library"
+  options: ImagePicker.CameraOptions | ImagePicker.ImageLibraryOptions
 }
 
 const actions: Action[] = [
   {
-    title: 'Take Image',
-    type: 'capture',
+    title: "Take Image",
+    type: "capture",
     options: {
       saveToPhotos: true,
-      mediaType: 'photo',
+      mediaType: "photo",
       includeBase64: false,
     },
   },
   {
-    title: 'Select Image',
-    type: 'library',
+    title: "Select Image",
+    type: "library",
     options: {
       maxHeight: 200,
       maxWidth: 200,
       selectionLimit: 0,
-      mediaType: 'photo',
+      mediaType: "photo",
       includeBase64: false,
     },
   },
   {
-    title: 'Take Video',
-    type: 'capture',
+    title: "Take Video",
+    type: "capture",
     options: {
       saveToPhotos: true,
-      mediaType: 'video',
+      mediaType: "video",
     },
   },
   {
-    title: 'Select Video',
-    type: 'library',
+    title: "Select Video",
+    type: "library",
     options: {
       selectionLimit: 0,
-      mediaType: 'video',
+      mediaType: "video",
     },
   },
   {
     title: `Select Image or Video\n(mixed)`,
-    type: 'library',
+    type: "library",
     options: {
       selectionLimit: 0,
-      mediaType: 'mixed',
+      mediaType: "mixed",
     },
   },
-];
+]

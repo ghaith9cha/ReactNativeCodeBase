@@ -7,6 +7,7 @@ export const CharacterModel = types.model("Character").props({
   id: types.identifierNumber,
   name: types.maybe(types.string),
   password: types.maybe(types.string),
+  language: types.string,
 })
 
 type CharacterType = Instance<typeof CharacterModel>
